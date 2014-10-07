@@ -3,6 +3,17 @@
  * Copyright 2011-2014 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(['jquery'], function ($) {
+            factory($, root);
+        });
+    } else {
+        // Browser globals
+        factory(jQuery, root);
+    }
+}(this, function(jQuery, window) {
 
 if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript requires jQuery') }
 
@@ -2177,5 +2188,5 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
       Plugin.call($spy, data)
     })
   })
-
 }(jQuery);
+}));
